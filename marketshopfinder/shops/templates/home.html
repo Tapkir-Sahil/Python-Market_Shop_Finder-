@@ -1,14 +1,22 @@
-{% extends "layout.html" %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
-    {% block content %}
-    <h1>Welcome to Market Shop Finder</h1>
-    {% endblock %}
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Welcome to Market Shop Finder</h1>
+    <div class="row">
+        {% for shop in typeshop %}
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <img src="{{ shop.image.url }}" class="card-img-top" alt="{{ shop.name }}" style="height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ shop.name }}</h5>
+                    <p class="card-text">{{ shop.description }}</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center">No shops available.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
