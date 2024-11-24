@@ -11,7 +11,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ shop.name }}</h5>
                     <p class="card-text">{{ shop.description }}</p>
-                    <a href=" {% url 'detail' shop.id %} ">Details</a>
+                    <a href="{% url 'detail' shop.id %}" class="btn btn-primary btn-lg me-md-2 shadow-sm">Details</a>
                 </div>  
             </div>
         </div>
